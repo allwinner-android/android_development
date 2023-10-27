@@ -189,6 +189,10 @@ public abstract class MonkeyMotionEvent extends MonkeyEvent {
                     InputManager.INJECT_INPUT_EVENT_MODE_WAIT_FOR_RESULT)) {
                 return MonkeyEvent.INJECT_FAIL;
             }
+        ///AW CODE:[fix]#59476 monkey exit because a security exception is thrown.  2021.11.8
+        } catch (SecurityException e) {
+            return MonkeyEvent.INJECT_FAIL;
+        ///AW:add end
         } finally {
             me.recycle();
         }

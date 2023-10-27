@@ -444,6 +444,11 @@ public class MonkeySourceRandom implements MonkeyEventSource {
             }
 
             if (lastKey != KeyEvent.KEYCODE_POWER
+                    ///AW CODE:[fix]#64169 don't send tv power keyevent when run monkey test.
+                    && lastKey != KeyEvent.KEYCODE_TV_POWER
+                    && lastKey != KeyEvent.KEYCODE_STB_POWER
+                    && lastKey != KeyEvent.KEYCODE_AVR_POWER
+                    ///AW:add end
                     && lastKey != KeyEvent.KEYCODE_ENDCALL
                     && lastKey != KeyEvent.KEYCODE_SLEEP
                     && lastKey != KeyEvent.KEYCODE_SOFT_SLEEP
